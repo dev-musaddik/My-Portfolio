@@ -13,24 +13,19 @@ export const axiosInstance = axios.create({
 
 export const getProjects = async () => {
     try {
-        const res = await axiosInstance.get('/projects');
-        return res.data;
+      const res = await axiosInstance.get('/projects');
+      return res.data;
     } catch (err) {
-        throw err.response.data;
+      throw err.response?.data || { message: err.message || 'Unknown error' };
     }
-};
-
-export const getSkills = async () => {
+  };
+  
+  export const getSkills = async () => {
     try {
-        const res = await axiosInstance.get('/skills');
-        return res.data;
+      const res = await axiosInstance.get('/skills');
+      return res.data;
     } catch (err) {
-        throw err.response.data;
+      throw err.response?.data || { message: err.message || 'Unknown error' };
     }
-};
-
-
-// Use the instance to make requests
-// const res = await axiosInstance.get('/auth');
-
-// console.log(res.data);
+  };
+  

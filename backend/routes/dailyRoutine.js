@@ -7,9 +7,9 @@ const DailyRoutine = require('../models/DailyRoutine');
 // @route   GET api/daily-routine/me
 // @desc    Get authenticated user's daily routine
 // @access  Private
-router.get('/me', auth, async (req, res) => {
+router.get('/me', async (req, res) => {
     try {
-        const dailyRoutine = await DailyRoutine.findOne({ user: req.user.id });
+        const dailyRoutine = await DailyRoutine.findOne({  });
         if (!dailyRoutine) {
             return res.status(404).json({ msg: 'Daily routine not found for this user' });
         }
@@ -23,7 +23,7 @@ router.get('/me', auth, async (req, res) => {
 // @route   POST api/daily-routine
 // @desc    Create or update daily routine (Admin only)
 // @access  Private (Admin)
-router.post('/', auth, authorize(['admin']), async (req, res) => {
+router.post('/', authorize(['admin']), async (req, res) => {
     const { user, date, activities } = req.body;
 
     // Build daily routine object
@@ -48,7 +48,7 @@ router.post('/', auth, authorize(['admin']), async (req, res) => {
 // @route   DELETE api/daily-routine/:id
 // @desc    Delete a daily routine (Admin only)
 // @access  Private (Admin)
-router.delete('/:id', auth, authorize(['admin']), async (req, res) => {
+router.delete('/:id', authorize(['admin']), async (req, res) => {
     try {
         const dailyRoutine = await DailyRoutine.findById(req.params.id);
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getProjects, getSkills } from "../api/axiosInstance";
 import { Tooltip } from "react-tooltip";
-import { useInView } from "react-intersection-observer"; // Import IntersectionObserver hook
+import { useInView } from "react-intersection-observer"; // Scroll-triggered animations
 import "react-tooltip/dist/react-tooltip.css";
 
 const PortfolioSection = () => {
