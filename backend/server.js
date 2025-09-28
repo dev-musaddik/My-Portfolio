@@ -23,6 +23,7 @@ app.use('/api/blog', require('./routes/blog'));
 app.use('/api/daily-routine', require('./routes/dailyRoutine'));
 app.use('/api/projects', require('./routes/projects'));
 app.use('/api/skills', require('./routes/skills'));
+app.use('/api/profile', require('./routes/profile'));
 
 const PORT = process.env.PORT || 5000;
 

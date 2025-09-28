@@ -131,5 +131,19 @@ export const deleteDailyRoutine = async (id) => {
     }
 };
 
+export const updateProfileImage = async (formData) => {
+    try {
+        const res = await axiosInstance.put('/profile/image', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        return res.data;
+    } catch (err) {
+        throw err.response.data;
+    }
+};
+
+
 // You might need more specific portfolio update functions (e.g., addSkill, addProject)
 // For now, this is a placeholder.

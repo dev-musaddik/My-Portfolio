@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { axiosInstance } from '../api/axiosInstance';
 import DailyRoutineSection from '../sections/DailyRoutineSection'; // Import DailyRoutineSection
+import AboutMeSection from '../sections/AboutMeSection';
 
 const Dashboard = () => {
     const [portfolioItems, setPortfolioItems] = useState([]);
@@ -48,6 +49,7 @@ const Dashboard = () => {
         <div className="min-h-screen p-8">
             <div className="max-w-4xl mx-auto p-6 rounded-lg shadow-lg bg-white dark:bg-black">
                 <h1 className="text-3xl font-bold text-center mb-8 text-black dark:text-white">Dashboard</h1>
+                <AboutMeSection />
                 <h2 className="text-2xl font-semibold mb-4 text-black dark:text-white">Your Portfolio Items</h2>
                 {portfolioItems.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
